@@ -279,11 +279,14 @@ onUnmounted(() => {
   position: relative;
   font-size: 0;
   width: 50%;
-  margin: 20px auto;
+  margin: 20px auto 60px;
   /* padding: 20px 0; */
   height: 100%;
-  /* overflow: auto; */
+  overflow: auto;
   background-color: #ffffff;
+  padding: 0 15px;
+  padding-right: 120px;
+
 }
 
 .panel .page .page-iframe {
@@ -297,7 +300,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 667px;
+  width: calc(100% - 120px);
 }
 
 .panel .page .page-layer .page-layer-widget {
