@@ -1,26 +1,28 @@
 <template>
   <div class="widget-conifg">
     <template v-if="controlContext.curWidget.value">
-      <div>{{controlContext.curWidget.value?.name }}</div>
-      <div>
-        <el-input
-          :model-value="controlContext.curWidget.value?.config?.questionName"
-          @update:model-value="onUpdateQuestionName"
-        ></el-input>
-      </div>
-      <div>
-        <el-input
-          type="textarea"
-          :model-value="controlContext.curWidget.value?.config?.questionDescription"
-          @update:model-value="onUpdateQuestionDescription"
-        ></el-input>
-      </div>
-      <div>
-        <el-switch
-          :model-value="controlContext.curWidget.value?.config?.required"
-          @update:model-value="onUpdateQuestionRequired"
-        />
-      </div>
+      <div mb-20px>{{controlContext.curWidget.value?.name }}</div>
+      <el-form :model="controlContext.curWidget.value?.config" label-width="80px" label-position="top">
+        <el-form-item label="问题名称" prop="questionName">
+          <el-input
+            :model-value="controlContext.curWidget.value?.config?.questionName"
+            @update:model-value="onUpdateQuestionName"
+          ></el-input>
+        </el-form-item>
+        <el-form-item label="问题描述" prop="questionDescription">
+          <el-input
+            type="textarea"
+            :model-value="controlContext.curWidget.value?.config?.questionDescription"
+            @update:model-value="onUpdateQuestionDescription"
+          ></el-input>
+        </el-form-item>
+        <el-form-item label="是否必须" prop="required">
+          <el-switch
+            :model-value="controlContext.curWidget.value?.config?.required"
+            @update:model-value="onUpdateQuestionRequired"
+          />
+        </el-form-item>
+      </el-form>
       <div class="widget-conifg-wrapper">
         <answer-widget-config v-if="controlContext.curWidget.value.component === 'McAnswer'"></answer-widget-config>
       </div>
@@ -30,7 +32,7 @@
 
 <script setup lang="ts">
 import { ControlContext } from "../types/controlContext";
-import AnswerWidgetConfig from "./widgetsConfig/AnswerConfig.vue"
+import AnswerWidgetConfig from "./widgetsConfig/AnswerConfig.vue";
 
 const controlContext: ControlContext = inject("controlContext") as ControlContext;
 
@@ -65,7 +67,9 @@ const onUpdateQuestionRequired = (val: boolean) => {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 360px;
+  width: 460px;
   background: #fff;
+  padding: 15px;
+  overflow-y: auto;
 }
 </style>

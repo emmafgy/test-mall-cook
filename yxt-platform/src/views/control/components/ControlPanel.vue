@@ -249,7 +249,7 @@ onUnmounted(() => {
 .panel {
   position: absolute;
   left: 176px; /*no*/
-  right: 360px; /*no*/
+  right: 460px; /*no*/
   height: 100%; /*no*/
   overflow: auto;
   background: #f7f8fa;
