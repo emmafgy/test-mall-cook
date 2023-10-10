@@ -7,6 +7,36 @@
 -->
 <template>
   <view class="render">
+    <McQuestion
+      v-if="item.component == 'McAnswer'"
+      :id="'widget' + item.id"
+      :key="item.id"
+      :widget-item="item"
+    >
+      <McAnswer :widget-item="item"></McAnswer>
+    </McQuestion>
+
+    <McTest01
+      v-if="item.component == 'McTest01'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest01>
+
+    <McTest02
+      v-if="item.component == 'McTest02'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest02>
+
+    <McTitle
+      v-if="item.component == 'McTitle'"
+      :id="'widget' + item.id"
+      :key="item.id"
+      :styles="item.styles"
+      :attrs="item.attrs"
+      :value="item.value"
+    ></McTitle>
+
     <McTitle
       v-if="item.component == 'McTitle'"
       :id="'widget' + item.id"

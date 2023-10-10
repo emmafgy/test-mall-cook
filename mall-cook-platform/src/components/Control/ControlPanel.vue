@@ -87,7 +87,7 @@ export default {
     console.log("注销页面");
 
     this.initIframe = false;
-    window.removeEventListener("message",this.getMessageHandle);
+    window.removeEventListener("message", this.getMessageHandle);
   },
 
   data() {
@@ -123,6 +123,20 @@ export default {
 
       this.messageInit();
       this.messageList();
+
+      // /**
+      //  * 测试不通过蒙版与iframe通信
+      //  */
+
+      // // 获取 iframe 内容窗口中的 document
+      // let iframeDoc = this.$refs.iframe.contentWindow.document;
+
+      // // 添加 dragover 事件监听器到 iframe 内容窗口中的 body 元素
+      // iframeDoc.body.addEventListener("dragover", function (event) {
+      //   // 在此处理 dragover 事件
+      //   console.log("Dragover event occurred in the iframe.");
+      //   console.log(event.target)
+      // });
     },
 
     // 接收iframe信息
@@ -148,6 +162,9 @@ export default {
 
     // 设置页面高度
     setHeight(params) {
+      console.log({
+        widgetInfoList:params
+      })
       this.widgetInfoList = params;
       this.iframeHeight = this.widgetInfoList.reduce((a, b) => a + b.height, 0);
       // console.log(`当前高度：${this.iframeHeight}`);

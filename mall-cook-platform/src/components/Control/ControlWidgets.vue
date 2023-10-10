@@ -31,6 +31,12 @@
 export default {
   inject: ["control"],
 
+  mounted() {
+    console.log({
+      $initializing: this.$initializing,
+    });
+  },
+
   methods: {
     // 拖拽开始
     handleDragStart(e) {
@@ -38,6 +44,10 @@ export default {
         e.target.dataset.component
       );
       this.control.dragstatus = true;
+
+      console.log({
+        NewdragWidget: this.control.dragWidget,
+      });
     },
 
     // 拖拽结束

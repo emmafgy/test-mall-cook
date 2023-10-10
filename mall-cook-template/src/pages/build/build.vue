@@ -8,7 +8,7 @@
 <template>
   <view id="content" class="content">
     <draggable v-model="list" @end="setList">
-      <view v-for="item in list" :key="item.id">
+      <view v-for="item in list" :key="item.id" :id="item.id">
         <widget-shape v-if="item" :widget="item">
           <render-widget :item="item"></render-widget>
         </widget-shape>
@@ -50,6 +50,17 @@ export default {
     };
   },
 
+  // watch: {
+  //   list: {
+  //     deep: true, // 开启深度监听
+  //     handler(newVal, oldVal) {
+  //       console.warn("list 发生变化");
+  //       console.warn("新值：", JSON.parse(JSON.stringify(newVal)));
+  //       console.warn("旧值：", JSON.parse(JSON.stringify(oldVal)));
+  //     },
+  //   },
+  // },
+
   onLoad() {
     this.getMessage();
   },
@@ -86,8 +97,8 @@ export default {
     },
 
     // 初始化,同步平台商城配置数据
-    init(params){
-      this.setProject(params.project)
+    init(params) {
+      this.setProject(params.project);
     },
 
     // 监听dom变化，传输页面高度给平台
@@ -176,11 +187,15 @@ export default {
 
     // 新增物料
     addWidget(self, params) {
+      console.error({
+        DropAddWidget: params,
+      });
+
       let watingIndex = self.list.findIndex(
         (item) => item.component == "waiting"
       );
-      
-      if(watingIndex != -1) {
+
+      if (watingIndex != -1) {
         self.list.splice(watingIndex, 1, params);
       } else {
         self.list.push(params);

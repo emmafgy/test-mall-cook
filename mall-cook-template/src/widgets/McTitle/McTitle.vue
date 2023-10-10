@@ -17,6 +17,20 @@
 
 			<!-- 副标题 -->
 			<div class="info" :style="[subTitleStyle()]">{{ value.info || ''}}</div>
+
+			<div>
+				<input  type="text" placeholder="测试测试请输入文本" />
+			</div>
+			<view>
+				<checkbox-group>
+					<label>
+						<checkbox value="cb" checked="true" color="#FFCC33" style="transform:scale(0.7)" />选中
+					</label>
+					<label>
+						<checkbox value="cb" color="#FFCC33" style="transform:scale(0.7)" />未选中
+					</label>
+				</checkbox-group>
+			</view>
 		</view>
 	</view>
 </template>
