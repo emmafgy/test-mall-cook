@@ -281,12 +281,35 @@ onUnmounted(() => {
   width: 50%;
   margin: 20px auto 60px;
   /* padding: 20px 0; */
-  height: 100%;
+  height: calc(100% - 80px);
   overflow: auto;
   background-color: #ffffff;
-  padding: 0 15px;
+  padding: 15px 15px;
   padding-right: 120px;
 
+}
+
+/* 设置滚动条的样式 */
+.panel .page::-webkit-scrollbar {
+	width: 11px;
+	height: 11px;
+	background-color: #f1f1f1;
+}
+
+
+/* 滚动槽 */
+.panel .page::-webkit-scrollbar-track {
+	border-radius: 10px;
+	opacity: 0;
+	background: transparent;
+}
+
+
+/* 滚动条滑块 */
+.panel .page::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	width: 8px;
+	background: #c1c1c1;
 }
 
 .panel .page .page-iframe {
@@ -299,8 +322,8 @@ onUnmounted(() => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   width: calc(100% - 120px);
+  padding: 15px 0;
 }
 
 .panel .page .page-layer .page-layer-widget {
