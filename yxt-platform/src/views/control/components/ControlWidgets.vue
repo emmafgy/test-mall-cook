@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="h-100% w-100% bg-white p16px">
+    <div class="h-100% w-100% bg-white p16px" of-auto>
       <ul>
         <li
           v-for="item of widgets"
@@ -27,32 +27,11 @@ import { Widgets } from "../types/widgets";
 import { ControlContext } from "../types/controlContext";
 import { getRandomCode } from "@/utils";
 import { Star } from "@element-plus/icons-vue";
+import { McTest01, McTest02, McAnswer, McRadio, McCheckbox, McNumber, McUpload } from "./widgetList";
 
 const controlContext: ControlContext = inject("controlContext") as ControlContext;
 
-const widgets: Ref<Widgets[]> = ref<Widgets[]>([
-  {
-    component: "McTest01",
-    name: "测试组件01",
-    icon: "",
-  },
-  {
-    component: "McTest02",
-    name: "测试组件02",
-    icon: "",
-  },
-  {
-    component: "McAnswer",
-    name: "问答题",
-    icon: "",
-    config: {
-      questionName: "我是测试问答题",
-      questionDescription: "请按照要求填写问答题",
-      required: true,
-      placeholder: "请按照要求填写问答题",
-    },
-  },
-]);
+const widgets: Ref<Widgets[]> = ref<Widgets[]>([McTest01, McTest02, McAnswer, McRadio, McCheckbox, McNumber, McUpload]);
 
 // 获取组件对象
 const getNewComponent = (componentName: string): Widgets => {
@@ -117,3 +96,4 @@ const dragEnd = (e: DragEvent) => {
   background: var(--el-color-primary);
 }
 </style>
+./widgetList

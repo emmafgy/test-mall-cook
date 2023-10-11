@@ -2,6 +2,7 @@
   <div class="widget-conifg">
     <template v-if="controlContext.curWidget.value">
       <div mb-20px>{{controlContext.curWidget.value?.name }}</div>
+      <!-- 以下form为问题通用属性 -->
       <el-form :model="controlContext.curWidget.value?.config" label-width="80px" label-position="top">
         <el-form-item label="问题名称" prop="questionName">
           <el-input
@@ -24,6 +25,7 @@
         </el-form-item>
       </el-form>
       <div class="widget-conifg-wrapper">
+        <!-- 以下为问题不同属性配置 -->
         <answer-widget-config v-if="controlContext.curWidget.value.component === 'McAnswer'"></answer-widget-config>
       </div>
     </template>
@@ -37,15 +39,15 @@ import AnswerWidgetConfig from "./widgetsConfig/AnswerConfig.vue";
 const controlContext: ControlContext = inject("controlContext") as ControlContext;
 
 const onUpdateQuestionName = (val: string) => {
-  controlContext.curWidget.value.config.questionName = val;
+  controlContext.curWidget.value!.config!.questionName = val;
 };
 
 const onUpdateQuestionDescription = (val: string) => {
-  controlContext.curWidget.value.config.questionDescription = val;
+  controlContext.curWidget.value!.config!.questionDescription = val;
 };
 
-const onUpdateQuestionRequired = (val: boolean) => {
-  controlContext.curWidget.value.config.required = val;
+const onUpdateQuestionRequired = (val) => {
+  controlContext.curWidget.value!.config!.required = val;
 };
 
 // watch(controlContext.curWidget, (newVal) => {

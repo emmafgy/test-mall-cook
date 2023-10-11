@@ -22,9 +22,40 @@ export interface NumberWidgetConfig extends CommonConfig {
 }
 
 /**
+ * 图片上传
+ */
+export interface UploadWidgetConfig extends CommonConfig {
+  placeholder: string;
+  onlyPhotograph: boolean;
+}
+
+/**
+ * 单选和多选
+ */
+interface Option {
+  type: string;
+  label: string;
+}
+
+export interface RadioWidgetConfig extends CommonConfig {
+  placeholder: string;
+  options: Option[];
+}
+
+export interface CheckboxWidgetConfig extends CommonConfig {
+  placeholder: string;
+  options: Option[];
+}
+
+/**
  * 所有问题组件类型配置
  */
-export type AllWidgetsConfigTypes = AnswerWidgetConfig | NumberWidgetConfig;
+export type AllWidgetsConfigTypes =
+  | CheckboxWidgetConfig
+  | RadioWidgetConfig
+  | AnswerWidgetConfig
+  | NumberWidgetConfig
+  | UploadWidgetConfig;
 
 export interface BaseWidgets {
   component: string;
