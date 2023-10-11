@@ -49,9 +49,7 @@ const widgets: Ref<Widgets[]> = ref<Widgets[]>([
       questionName: "我是测试问答题",
       questionDescription: "请按照要求填写问答题",
       required: true,
-      widgetConfig: {
-        placeholder: "请按照要求填写问答题",
-      },
+      placeholder: "请按照要求填写问答题",
     },
   },
 ]);

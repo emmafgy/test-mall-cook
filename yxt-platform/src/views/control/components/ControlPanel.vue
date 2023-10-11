@@ -83,7 +83,7 @@ const init = () => {
 // 设置页面高度
 const setHeight = (params: Widgets[]) => {
   widgetInfoList.value = params;
-  iframeHeight.value = widgetInfoList.value.reduce((a, b: Widgets) => a + b.height, 0);
+  iframeHeight.value = widgetInfoList.value.reduce((a, b: Widgets) => a + b!.height, 0);
   // console.log(`当前高度：${this.iframeHeight}`);
 };
 

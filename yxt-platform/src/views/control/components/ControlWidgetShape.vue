@@ -53,7 +53,8 @@ const setcurComponent = () => {
 };
 
 // 删除物料
-const delComponent = (id: string) => {
+const delComponent = (id: string | undefined) => {
+  if(!id) return;
   let index = controlContext.widgetsList.value.findIndex((item) => item?.id == id);
   controlContext.widgetsList.value.splice(index, 1);
   controlContext.curWidget.value = undefined;

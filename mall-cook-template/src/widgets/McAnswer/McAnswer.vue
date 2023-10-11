@@ -11,7 +11,7 @@
       class="render_textarea"
       :auto-height="autoHeight"
       value=""
-      :placeholder="widgetItem.config.widgetConfig.placeholder"
+      :placeholder="widgetItem.config.placeholder"
     />
 
     <!-- <view class="Number">

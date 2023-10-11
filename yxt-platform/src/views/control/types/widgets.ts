@@ -1,26 +1,29 @@
-// 问题公共配置
-export interface CommonConfig<T> {
+/**
+ * 问题公共配置
+ */
+export interface CommonConfig {
   questionName: string;
   questionDescription: string;
   required: boolean;
-  widgetConfig: T;
 }
 
-// 问答题
-export interface AnswerWidgetBaseConfig {
+/**
+ * 问答题配置
+ */
+export interface AnswerWidgetConfig extends CommonConfig {
   placeholder: string;
 }
 
-export type AnswerWidgetConfig = CommonConfig<AnswerWidgetBaseConfig>;
-
-// 数字题
-export interface NumberWidgetBaseConfig {
+/**
+ * 数字题配置
+ */
+export interface NumberWidgetConfig extends CommonConfig {
   placeholder: string;
 }
 
-export type NumberWidgetConfig = CommonConfig<NumberWidgetBaseConfig>;
-
-// 问题组件配置
+/**
+ * 所有问题组件类型配置
+ */
 export type AllWidgetsConfigTypes = AnswerWidgetConfig | NumberWidgetConfig;
 
 export interface BaseWidgets {
