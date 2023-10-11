@@ -7,6 +7,7 @@
 -->
 <template>
   <view class="render">
+
     <McQuestion
       v-if="item.component == 'McAnswer'"
       :id="'widget' + item.id"
@@ -15,6 +16,30 @@
     >
       <McAnswer :widget-item="item"></McAnswer>
     </McQuestion>
+
+    <McTest01
+      v-if="item.component == 'McRadio'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest01>
+
+    <McTest01
+      v-if="item.component == 'McCheckbox'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest01>
+
+    <McTest01
+      v-if="item.component == 'McNumber'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest01>
+
+    <McTest01
+      v-if="item.component == 'McUpload'"
+      :id="'widget' + item.id"
+      :key="item.id"
+    ></McTest01>
 
     <McTest01
       v-if="item.component == 'McTest01'"
